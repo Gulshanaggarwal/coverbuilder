@@ -1,5 +1,6 @@
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import '../../styles/globals.css'
+import Navbar from '../components/navbar';
 
 
 
@@ -17,6 +18,7 @@ const theme = createTheme({
 
 function MyApp({ Component, pageProps }) {
   return <ThemeProvider theme={theme}>
+    <Navbar />
     <Component {...pageProps} />
   </ThemeProvider>
 }
