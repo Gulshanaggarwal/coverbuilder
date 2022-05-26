@@ -1,9 +1,9 @@
 import { Box } from '@mui/system';
-import TextField from '@mui/material/TextField';
 import SearchOutlinedIcon from '@mui/icons-material/SearchOutlined';
 import Chip from '@mui/material/Chip';
-import { createApi } from "unsplash-js";
-import { useState, useEffect } from 'react';
+import FetchImages from './fetchImages';
+import { useState } from 'react';
+
 
 
 const chipArray = [
@@ -27,29 +27,12 @@ const chipArray = [
     }
 ]
 
-const api = createApi({
-    accessKey: ""
-});
+
 
 export default function Background() {
 
     const [searchQuery, setSearchQuery] = useState("coding");
-    const [data, setPhotosResponse] = useState(null);
-    const [isLoading, setIsLoading] = useState(null);
-    const [error, setError] = useState(null);
 
-
-    useEffect(() => {
-        api.search
-            .getPhotos({ query: searchQuery, page: 1, perPage: 10, orientation: "landscape" })
-            .then(result => {
-                setPhotosResponse(result);
-
-            })
-            .catch(() => {
-                console.log("something went wrong!");
-            });
-    }, [searchQuery]);
 
 
     return (
@@ -73,6 +56,8 @@ export default function Background() {
                     ))
                 }
             </Box>
+            <FetchImages searchQuery={searchQuery} />
+
         </Box>
     )
 }

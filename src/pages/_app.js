@@ -3,6 +3,7 @@ import '../../styles/globals.css'
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { Box } from '@mui/material';
+import { QueryClient, QueryClientProvider } from "react-query";
 
 
 
@@ -18,13 +19,18 @@ const theme = createTheme({
 })
 
 function MyApp({ Component, pageProps }) {
-  return <ThemeProvider theme={theme}>
-    <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
-      <Navbar />
-      <Component {...pageProps} />
-      <Footer />
-    </Box>
-  </ThemeProvider>
+
+  const queryClient = new QueryClient();
+
+  return <QueryClientProvider client={queryClient}>
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
+        <Navbar />
+        <Component {...pageProps} />
+        <Footer />
+      </Box>
+    </ThemeProvider>
+  </QueryClientProvider>
 }
 
 export default MyApp

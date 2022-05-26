@@ -11,7 +11,7 @@ export default function Leftbar() {
     const [svgColor, setSvgColor] = useState("rgba(189, 189, 189, 1)"); // setsvg color for text item.
 
     return (
-        <Box sx={{ display: 'flex', flexDirection: 'column', gap: '3.5rem', padding: '3rem 0', textAlign: 'center', color: 'grey.400' }}>
+        <Box sx={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '3.5rem', padding: '3rem 0', textAlign: 'center', color: 'grey.400', height: '100%' }}>
             <Box sx={{
                 '&:hover': {
                     color: 'grey.50'
