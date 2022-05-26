@@ -12,6 +12,8 @@ export default function Footer() {
                 backgroundColor: "common.black",
                 color: "common.white",
                 padding: "1rem",
+                gridColumnStart: 1,
+                gridColumnEnd: 4
             }}
         >
             <Box sx={{ display: "flex" }}>

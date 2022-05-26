@@ -24,10 +24,12 @@ function MyApp({ Component, pageProps }) {
 
   return <QueryClientProvider client={queryClient}>
     <ThemeProvider theme={theme}>
-      <Box sx={{ display: 'flex', flexDirection: 'column', height: '100vh', overflow: 'hidden' }}>
-        <Navbar />
-        <Component {...pageProps} />
-        <Footer />
+      <Box sx={{ height: '100vh' }}>
+        <Box sx={{ height: '100%', overflow: 'hidden', display: 'grid', gridTemplateColumns: '120px 350px auto', gridTemplateRows: '60px auto 60px' }}>
+          <Navbar />
+          <Component {...pageProps} />
+          <Footer />
+        </Box>
       </Box>
     </ThemeProvider>
   </QueryClientProvider>
