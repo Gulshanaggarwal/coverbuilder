@@ -1,14 +1,26 @@
 import { ImageListItem } from "@mui/material";
-import { imageConfigDefault } from "next/dist/shared/lib/image-config";
 import Image from "next/image";
+import { ItemTypes } from "../itemTypes";
+import { useDrag } from "react-dnd";
 
 
 
 export default function BgPhoto({ photo }) {
 
     const { alt_description, urls } = photo;
+
+    const [{ isDragging }, drag] = useDrag(() => ({
+        type: ItemTypes.BG_IMAGE,
+        item: { photo },
+        collect: (monitor) => ({
+            isDragging: monitor.isDragging(),
+            handlerId: monitor.getHandlerId()
+        })
+    }))
+
+
     return (
-        <ImageListItem sx={{ cursor: 'pointer' }}>
+        <ImageListItem ref={drag} sx={{ cursor: 'pointer' }}>
             <Image
                 alt={alt_description}
                 src={urls.regular}

@@ -4,6 +4,7 @@ import WallpaperIcon from '@mui/icons-material/Wallpaper';
 import CloudUploadOutlinedIcon from '@mui/icons-material/CloudUploadOutlined';
 import EmojiEmotionsOutlinedIcon from '@mui/icons-material/EmojiEmotionsOutlined';
 import { useState } from "react";
+import Link from "next/link"
 
 
 export default function Leftbar() {
@@ -12,24 +13,32 @@ export default function Leftbar() {
 
     return (
         <Box sx={{ overflow: 'hidden', backgroundColor: 'grey.900', display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center', gap: '3.5rem', padding: '3rem 0', textAlign: 'center', color: 'grey.400', }}>
-            <Box sx={{
-                '&:hover': {
-                    color: 'grey.50'
-                },
-                cursor: 'pointer'
-            }}>
-                <WallpaperIcon />
-                <Typography component="p" variant="p">Background</Typography>
-            </Box>
-            <Box sx={{
-                '&:hover': {
-                    color: 'grey.50'
-                },
-                cursor: 'pointer'
-            }}>
-                <CloudUploadOutlinedIcon />
-                <Typography component="p" variant="p">Uploads</Typography>
-            </Box>
+            <Link href="/create/background">
+                <a>
+                    <Box sx={{
+                        '&:hover': {
+                            color: 'grey.50'
+                        },
+                        cursor: 'pointer'
+                    }}>
+                        <WallpaperIcon />
+                        <Typography component="p" variant="p">Background</Typography>
+                    </Box>
+                </a>
+            </Link>
+            <Link href="/create/uploads">
+                <a>
+                    <Box sx={{
+                        '&:hover': {
+                            color: 'grey.50'
+                        },
+                        cursor: 'pointer'
+                    }}>
+                        <CloudUploadOutlinedIcon />
+                        <Typography component="p" variant="p">Uploads</Typography>
+                    </Box>
+                </a>
+            </Link>
             <Box onMouseEnter={() => setSvgColor("#fafafa")} onMouseLeave={() => setSvgColor("rgba(189, 189, 189, 1)")} sx={{
                 '&:hover': {
                     color: 'grey.50'

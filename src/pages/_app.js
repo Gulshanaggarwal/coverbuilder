@@ -3,8 +3,8 @@ import '../../styles/globals.css'
 import Navbar from '../components/navbar';
 import Footer from '../components/footer';
 import { Box } from '@mui/material';
-import { QueryClient, QueryClientProvider } from "react-query";
-
+import { DndProvider } from "react-dnd"
+import { HTML5Backend } from "react-dnd-html5-backend"
 
 
 
@@ -20,9 +20,8 @@ const theme = createTheme({
 
 function MyApp({ Component, pageProps }) {
 
-  const queryClient = new QueryClient();
 
-  return <QueryClientProvider client={queryClient}>
+  return <DndProvider backend={HTML5Backend}>
     <ThemeProvider theme={theme}>
       <Box sx={{ height: '100vh' }}>
         <Box sx={{ height: '100%', overflow: 'hidden', display: 'grid', gridTemplateColumns: '120px 350px auto', gridTemplateRows: '60px auto 60px' }}>
@@ -32,7 +31,7 @@ function MyApp({ Component, pageProps }) {
         </Box>
       </Box>
     </ThemeProvider>
-  </QueryClientProvider>
+  </DndProvider>
 }
 
 export default MyApp
