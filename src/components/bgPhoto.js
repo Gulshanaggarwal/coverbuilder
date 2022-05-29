@@ -11,7 +11,7 @@ export default function BgPhoto({ photo }) {
 
     const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemTypes.BG_IMAGE,
-        item: { photo },
+        item: { photo, type: "BG_IMAGE" },
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
             handlerId: monitor.getHandlerId()

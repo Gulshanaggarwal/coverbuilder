@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { CircularProgress } from "@mui/material";
 import { ImageList } from "@mui/material";
 import Typography from "@mui/material/Typography";
-import BgPhoto from "./bgPhoto";
+import BgPhoto from "../bgPhoto";
 import { Box } from "@mui/system";
 
 
@@ -40,7 +40,7 @@ export default function FetchImages({ searchQuery }) {
 
 
     return (
-        <ImageList sx={{ overflowY: 'scroll' }} cols={2}>
+        <ImageList sx={{ overflowY: 'scroll', overflowX: 'hidden' }} cols={2}>
             {
                 // map over images
                 data.response.results.map((photo) => (

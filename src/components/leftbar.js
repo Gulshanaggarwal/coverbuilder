@@ -39,24 +39,32 @@ export default function Leftbar() {
                     </Box>
                 </a>
             </Link>
-            <Box onMouseEnter={() => setSvgColor("#fafafa")} onMouseLeave={() => setSvgColor("rgba(189, 189, 189, 1)")} sx={{
-                '&:hover': {
-                    color: 'grey.50'
-                },
-                cursor: 'pointer'
-            }}>
-                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill={svgColor} ><path d="M5 8h2V6h3.252L7.68 18H5v2h8v-2h-2.252L13.32 6H17v2h2V4H5z"></path></svg>
-                <Typography component="p" variant="p">Text</Typography>
-            </Box>
-            <Box sx={{
-                '&:hover': {
-                    color: 'grey.50'
-                },
-                cursor: 'pointer'
-            }}>
-                <EmojiEmotionsOutlinedIcon />
-                <Typography component="p" variant="p">Emoji</Typography>
-            </Box>
+            <Link href="/create/text">
+                <a>
+                    <Box onMouseEnter={() => setSvgColor("#fafafa")} onMouseLeave={() => setSvgColor("rgba(189, 189, 189, 1)")} sx={{
+                        '&:hover': {
+                            color: 'grey.50'
+                        },
+                        cursor: 'pointer'
+                    }}>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill={svgColor} ><path d="M5 8h2V6h3.252L7.68 18H5v2h8v-2h-2.252L13.32 6H17v2h2V4H5z"></path></svg>
+                        <Typography component="p" variant="p">Text</Typography>
+                    </Box>
+                </a>
+            </Link>
+            <Link href="/create/emoji">
+                <a>
+                    <Box sx={{
+                        '&:hover': {
+                            color: 'grey.50'
+                        },
+                        cursor: 'pointer'
+                    }}>
+                        <EmojiEmotionsOutlinedIcon />
+                        <Typography component="p" variant="p">Emoji</Typography>
+                    </Box>
+                </a>
+            </Link>
         </Box>
     )
 }
