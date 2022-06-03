@@ -44,7 +44,7 @@ export default function FetchImages({ searchQuery }) {
             {
                 // map over images
                 data.response.results.map((photo) => (
-                    <BgPhoto key={photo.id} photo={photo} />
+                    <BgPhoto key={photo.id} photo={{ id: photo.id, url: photo.urls.regular, alt_description: photo.alt_description }} />
                 ))
             }
         </ImageList>

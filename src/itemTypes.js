@@ -1,3 +1,4 @@
 export const ItemTypes = {
-    BG_IMAGE: 'bg_Image'
+    BG_IMAGE: 'bg_Image',
+    TEXT: 'Text'
 }

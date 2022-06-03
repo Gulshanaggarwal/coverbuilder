@@ -7,7 +7,7 @@ import { useDrag } from "react-dnd";
 
 export default function BgPhoto({ photo }) {
 
-    const { alt_description, urls } = photo;
+    const { url, alt_description } = photo;
 
     const [{ isDragging }, drag] = useDrag(() => ({
         type: ItemTypes.BG_IMAGE,
@@ -21,12 +21,14 @@ export default function BgPhoto({ photo }) {
 
     return (
         <ImageListItem ref={drag} sx={{ cursor: 'pointer' }}>
-            <Image
-                alt={alt_description}
-                src={urls.regular}
-                width={300}
-                height={200}
-            />
+            {
+                !isDragging && <Image
+                    alt={alt_description}
+                    src={url}
+                    width={300}
+                    height={200}
+                />
+            }
         </ImageListItem>
     )
 }

@@ -23,8 +23,8 @@ function MyApp({ Component, pageProps }) {
 
   return <DndProvider backend={HTML5Backend}>
     <ThemeProvider theme={theme}>
-      <Box sx={{ height: '100vh' }}>
-        <Box sx={{ height: '100%', overflow: 'hidden', display: 'grid', gridTemplateColumns: '120px 350px auto', gridTemplateRows: '60px auto 60px' }}>
+      <Box sx={{ height: '100vh', }}>
+        <Box sx={{ height: '100%', display: 'grid', gridTemplateColumns: '120px 350px auto', gridTemplateRows: '70px auto 60px' }}>
           <Navbar />
           <Component {...pageProps} />
           <Footer />
