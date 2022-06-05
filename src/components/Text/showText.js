@@ -16,7 +16,7 @@ export default function ShowText({ text }) {
     }))
 
     return (
-        <Typography ref={drag} fontSize={text.size} fontWeight={text.weight} sx={{ backgroundColor: 'grey.900', padding: '0.7rem 0.5rem', borderRadius: 1, '&:hover': { backgroundColor: 'grey.700' }, cursor: 'pointer', color: isDragging ? 'grey.700' : 'common.white' }}>
+        <Typography ref={drag} fontSize={text.size} fontWeight={text.weight} sx={{ backgroundColor: 'grey.900', padding: '0.7rem 0.5rem', borderRadius: 1, '&:hover': { backgroundColor: 'grey.700' }, cursor: 'grab', color: isDragging ? 'grey.700' : 'common.white' }}>
             {text.text}
         </Typography>
     )

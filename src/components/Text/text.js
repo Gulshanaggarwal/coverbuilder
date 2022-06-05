@@ -25,8 +25,8 @@ export default function Text() {
 
 
     return (
-        <Box>
-            <Stack direction="column" sx={{ color: 'common.white' }} gap={2} marginTop={2}>
+        <Box sx={{ width: '100%' }} >
+            <Stack direction="column" sx={{ color: 'common.white', }} gap={2} marginTop={2}>
                 {
                     texts.map((text) => (
                         <ShowText key={text.text} text={text} />

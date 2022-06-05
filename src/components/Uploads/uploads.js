@@ -92,20 +92,22 @@ export default function Uploads() {
     }
 
     return (
-        <Box>
-            <label htmlFor="contained-button-file">
-                <Input onChange={handleFileChange} accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" />
-                <Button sx={{ width: '100%', margin: '1rem 0' }} variant="contained" component="span" endIcon={<PhotoCamera />}>
-                    Upload
-                </Button>
-            </label>
-            <ImageList sx={{ overflowY: 'scroll', overflowX: 'hidden' }} cols={2}>
+        <>
+            <Box sx={{ width: '100%' }}>
+                <label htmlFor="contained-button-file">
+                    <Input onChange={handleFileChange} accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" />
+                    <Button sx={{ width: '100%', margin: '1rem 0' }} variant="contained" component="span" endIcon={<PhotoCamera />}>
+                        Upload
+                    </Button>
+                </label>
+            </Box>
+            <ImageList sx={{ overflowY: 'scroll', overflowX: 'hidden', margin: '1.5rem 0 0 0' }} cols={2} gap={6}>
                 {
                     UploadedImages.length > 0 && UploadedImages.map((photo) => (
                         <BgPhoto key={photo.id} photo={photo} />
                     ))
                 }
             </ImageList>
-        </Box>
+        </>
     )
 }

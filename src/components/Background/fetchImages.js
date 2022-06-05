@@ -40,7 +40,7 @@ export default function FetchImages({ searchQuery }) {
 
 
     return (
-        <ImageList sx={{ overflowY: 'scroll', overflowX: 'hidden' }} cols={2}>
+        <ImageList sx={{ overflowX: 'hidden', }} cols={2} gap={6}>
             {
                 // map over images
                 data.response.results.map((photo) => (

@@ -63,7 +63,8 @@ export default function Surface() {
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', margin: '1rem 0', }}>
             <Box className="surface" ref={drop} sx={{
-                width: '40%', height: '60%', backgroundColor: 'common.white',
+                position: 'relative',
+                width: '80%', height: '60%', backgroundColor: 'common.white',
                 boxShadow: 2,
                 '&:hover': {
                     border: 2,

@@ -20,7 +20,7 @@ export default function BgPhoto({ photo }) {
 
 
     return (
-        <ImageListItem ref={drag} sx={{ cursor: 'pointer' }}>
+        <ImageListItem ref={drag} sx={{ cursor: 'grab' }}>
             {
                 !isDragging && <Image
                     alt={alt_description}

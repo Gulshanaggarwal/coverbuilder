@@ -20,14 +20,12 @@ export default function Create() {
             {
                 // Middle Layer
                 <SearchContextProvider>
-                    <Box sx={{ padding: '1rem', backgroundColor: 'grey.800', overflow: 'hidden' }}>
-                        <Box sx={{ width: '90%', margin: 'auto', }}>
-                            <Search />
-                            {router.query.endpoint === 'background' && <Background />}
-                            {router.query.endpoint === 'uploads' && <Uploads />}
-                            {router.query.endpoint === 'text' && <Text />}
-                            {router.query.endpoint === 'emoji' && <Emoji />}
-                        </Box>
+                    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '2rem', backgroundColor: 'grey.800', overflowX: 'hidden' }}>
+                        <Search />
+                        {router.query.endpoint === 'background' && <Background />}
+                        {router.query.endpoint === 'uploads' && <Uploads />}
+                        {router.query.endpoint === 'text' && <Text />}
+                        {router.query.endpoint === 'emoji' && <Emoji />}
                     </Box>
                 </SearchContextProvider>
             }

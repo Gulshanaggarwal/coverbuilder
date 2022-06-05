@@ -19,12 +19,11 @@
     "firebase": "^9.8.2",
     "nanoid": "^3.3.4",
     "next": "12.1.6",
-    "re-resizable": "^6.9.9",
     "react": "18.1.0",
-    "react-contenteditable": "^3.3.6",
     "react-dnd": "^16.0.1",
     "react-dnd-html5-backend": "^16.0.1",
     "react-dom": "18.1.0",
+    "react-rnd": "^10.3.7",
     "unsplash-js": "^7.0.15"
   },
   "devDependencies": {
