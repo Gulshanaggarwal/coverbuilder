@@ -5,16 +5,22 @@ const texts = [
     {
         size: '34px',
         weight: 'normal',
+        font: 'Roboto',
+        family: 'sans-serif',
         text: "Add a heading"
     },
     {
         size: '24px',
         weight: 'normal',
+        font: 'Roboto',
+        family: 'sans-serif',
         text: "Add a subheading"
     },
     {
         size: '16px',
         weight: 'normal',
+        font: 'Roboto',
+        family: 'sans-serif',
         text: "Add small body of text"
     },
 

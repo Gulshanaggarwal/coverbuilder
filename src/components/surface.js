@@ -1,9 +1,10 @@
 import { Box } from "@mui/system";
 import { ItemTypes } from "../itemTypes";
 import { useDrop } from "react-dnd";
-import { useState } from "react";
+import { useState, useContext } from "react";
 import { nanoid } from "nanoid";
-import SurfaceText from "./surfaceText";
+import { Rnd } from "react-rnd";
+import { FocusContext } from "../contexts/focusContext";
 
 
 const handleBackgroundImage = (item, background, setBackground) => {
@@ -17,12 +18,20 @@ const handleBackgroundImage = (item, background, setBackground) => {
     return;
 }
 
-const handleText = (item, texts, setTexts) => {
+const handleText = (item, focusDispatch) => {
+
+
+    // const data = { id, fontSize: item.size, fontWeight: item.weight, text: item.text }
+    // setsurfaceTextList((existingItems) => [...existingItems, data]);
 
     const id = nanoid(10);
 
-    const data = { id, fontSize: item.size, fontWeight: item.weight, text: item.text }
-    setTexts((existingItems) => [...existingItems, data]);
+    focusDispatch({
+        type: 'ADD_TEXT_TO_SURFACE',
+        payload: { ...item, id }
+    })
+
+
 
 
 
@@ -42,9 +51,11 @@ export default function Surface() {
     }))
 
     const [background, setBackground] = useState(false);
-    const [texts, setTexts] = useState([]);
 
-    console.log(texts);
+    const [currentFocus, setCurrentFocus] = useState(null);
+    const [, surfaceTextList, focusDispatch] = useContext(FocusContext);
+    console.log(surfaceTextList);
+
 
     const handleDropItem = (item) => {
 
@@ -52,14 +63,31 @@ export default function Surface() {
             handleBackgroundImage(item, background, setBackground);
         }
         else if (item.type === "TEXT") {
-            handleText(item, texts, setTexts);
+            handleText(item, focusDispatch);
         }
 
     }
 
+    const handleFocus = (e, text) => {
+        setCurrentFocus(text.id);
+
+        // dispatch style bar
+
+        focusDispatch({
+            type: 'SET_STYLES',
+            payload: text
+        })
+
+    }
 
 
-    const isActive = canDrop && isOver
+    const handleOnResize = (textId) => {
+        setCurrentFocus(textId);
+    }
+
+    const handleResizeStop = (textId) => {
+        setCurrentFocus(textId);
+    }
     return (
         <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', margin: '1rem 0', }}>
             <Box className="surface" ref={drop} sx={{
@@ -76,8 +104,10 @@ export default function Surface() {
                 backgroundPosition: 'center'
             }}>
                 {
-                    texts.length > 0 && texts.map((item) => (
-                        <SurfaceText key={item.id} text={item} />
+                    surfaceTextList.length > 0 && surfaceTextList.map((text) => (
+                        <Rnd key={text.id} bounds="parent" onResize={() => handleOnResize(text.id)} onResizeStop={() => handleResizeStop(text.id)}  >
+                            <Box onFocus={(e) => handleFocus(e, text)} component="div" fontSize={text.size} fontWeight={text.weight} fontFamily={`"${text.font}",${text.family}`} sx={{ outline: 'none', backgroundColor: 'none', width: '100%', height: '100%', border: currentFocus === text.id ? 2 : 0, borderColor: 'primary.main' }} contentEditable={true} suppressContentEditableWarning={true}>{text.text} </Box>
+                        </Rnd >
                     ))
                 }
             </Box>
