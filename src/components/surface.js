@@ -106,7 +106,7 @@ export default function Surface() {
                 {
                     surfaceTextList.length > 0 && surfaceTextList.map((text) => (
                         <Rnd key={text.id} bounds="parent" onResize={() => handleOnResize(text.id)} onResizeStop={() => handleResizeStop(text.id)}  >
-                            <Box onFocus={(e) => handleFocus(e, text)} component="div" fontSize={text.size} fontWeight={text.weight} fontFamily={`"${text.font}",${text.family}`} sx={{ outline: 'none', backgroundColor: 'none', width: '100%', height: '100%', border: currentFocus === text.id ? 2 : 0, borderColor: 'primary.main', color: text.color }} contentEditable={true} suppressContentEditableWarning={true}>{text.text} </Box>
+                            <Box className="font-effect-neon" onFocus={(e) => handleFocus(e, text)} component="div" fontSize={text.size} fontWeight={text.weight} fontFamily={`"${text.font}",${text.family}`} sx={{ outline: 'none', backgroundColor: 'none', width: '100%', height: '100%', border: currentFocus === text.id ? 2 : 0, borderColor: 'primary.main', color: text.color }} contentEditable={true} suppressContentEditableWarning={true}>{text.text} </Box>
                         </Rnd >
                     ))
                 }

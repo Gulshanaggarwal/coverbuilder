@@ -14,6 +14,7 @@ import SearchContextProvider from "../../contexts/searchContext";
 export default function Create() {
 
     const router = useRouter();
+    const { endpoint } = router.query;
     return (
         <>
             <Leftbar />
@@ -21,11 +22,11 @@ export default function Create() {
                 // Middle Layer
                 <SearchContextProvider>
                     <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '2rem', backgroundColor: 'grey.800', overflowX: 'hidden' }}>
-                        <Search />
-                        {router.query.endpoint === 'background' && <Background />}
-                        {router.query.endpoint === 'uploads' && <Uploads />}
-                        {router.query.endpoint === 'text' && <Text />}
-                        {router.query.endpoint === 'emoji' && <Emoji />}
+                        {(endpoint === 'background' || endpoint === "emoji") && <Search />}
+                        {endpoint === 'background' && <Background />}
+                        {endpoint === 'uploads' && <Uploads />}
+                        {endpoint === 'text' && <Text />}
+                        {endpoint === 'emoji' && <Emoji />}
                     </Box>
                 </SearchContextProvider>
             }

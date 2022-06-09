@@ -1,33 +1,26 @@
 import { Box } from "@mui/system"
-import { SearchContext } from "../../contexts/searchContext";
-import { useContext, useEffect, useState } from "react";
-import { handleChange } from "../Search/search";
-import { Button, ImageList } from "@mui/material";
+import { useState } from "react";
+import { Button, ImageList, Typography } from "@mui/material";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 import storage from "../../firebase/firebase";
 import { getDownloadURL, ref, uploadBytesResumable } from "firebase/storage";
 import BgPhoto from "../bgPhoto";
 import { nanoid } from "nanoid";
+import Error from "../Error/error";
 
 const supportedTypes = ["image/jpg", "image/jpeg", "image/png"];
 const MAX_SIZE = 10485760 // 10bytes
 
 export default function Uploads() {
 
-    const [state, dispatch] = useContext(SearchContext);
     const [UploadedImages, setImages] = useState(() => {
         const data = JSON.parse(window.localStorage.getItem('Uploads'));
         if (data) return data;
         return [];
-    })
-    console.log(UploadedImages);
+    });
 
-    useEffect(() => {
-        //make empty searchBar
-        handleChange("", dispatch);
 
-    }, [])
 
     const Input = styled('input')({
         display: 'none',
@@ -101,6 +94,9 @@ export default function Uploads() {
                     </Button>
                 </label>
             </Box>
+            {
+                UploadedImages.length === 0 && <Error error="Sorry! no image found, start uploading now 😞" />
+            }
             <ImageList sx={{ overflowY: 'scroll', overflowX: 'hidden', margin: '1.5rem 0 0 0' }} cols={2} gap={6}>
                 {
                     UploadedImages.length > 0 && UploadedImages.map((photo) => (
