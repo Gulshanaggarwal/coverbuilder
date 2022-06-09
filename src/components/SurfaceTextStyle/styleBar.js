@@ -1,5 +1,4 @@
 import { Box } from "@mui/system";
-import { Stack } from "@mui/material";
 import { useState, useEffect } from "react";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -8,7 +7,7 @@ import Select from '@mui/material/Select';
 import FormatColorTextOutlinedIcon from '@mui/icons-material/FormatColorTextOutlined';
 import { availFonts } from "../../resources/availFonts";
 import { availSize } from "../../resources/fontSize";
-import { ChromePicker } from "react-color";
+import { SketchPicker } from "react-color";
 import Popover from '@mui/material/Popover';
 
 
@@ -29,6 +28,8 @@ export default function StyleBar({ currentText, focusDispatch }) {
 
     const [font, setFont] = useState(currentText.font);
     const [fontSize, setFontSize] = useState(currentText.size);
+    const [color, setColor] = useState(currentText.color);
+
     const [anchorEl, setAnchorEl] = useState(null);
     const open = Boolean(anchorEl);
 
@@ -36,6 +37,7 @@ export default function StyleBar({ currentText, focusDispatch }) {
     useEffect(() => {
         setFont(currentText.font);
         setFontSize(currentText.size);
+        setColor(currentText.color);
 
     }, [currentText])
 
@@ -68,6 +70,20 @@ export default function StyleBar({ currentText, focusDispatch }) {
     const handleClose = () => {
         setAnchorEl(null);
     };
+
+    const handleColorChange = (color) => {
+
+        console.log('color', color);
+        setColor(color.hex);
+
+        // handle Text color change
+
+        focusDispatch({
+            type: "TEXT_COLOR_CHANGE",
+            payload: { id: currentText.id, color: color.hex }
+        })
+
+    }
 
     return (
         <Box sx={{ backgroundColor: 'common.white', boxShadow: 6, padding: '8px 0.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
@@ -129,7 +145,7 @@ export default function StyleBar({ currentText, focusDispatch }) {
                     cursor: 'pointer',
                     position: 'relative'
                 }}>
-                    <FormatColorTextOutlinedIcon />
+                    <FormatColorTextOutlinedIcon sx={{ color: 'primary.main' }} />
                 </Box>
                 <Popover
                     id="simple-popover"
@@ -140,7 +156,7 @@ export default function StyleBar({ currentText, focusDispatch }) {
                         vertical: 'bottom',
                         horizontal: 'left',
                     }}>
-                    <ChromePicker />
+                    <SketchPicker color={color} onChange={handleColorChange} />
                 </Popover>
             </Box>
         </Box>

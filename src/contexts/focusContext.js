@@ -36,6 +36,7 @@ const reducer = (state, action) => {
 
                 })
             }
+            break;
         case "FONT_SIZE_CHANGE":
             return {
                 ...state,
@@ -46,6 +47,18 @@ const reducer = (state, action) => {
                     return ele;
                 })
             }
+            break;
+        case "TEXT_COLOR_CHANGE":
+            return {
+                ...state,
+                surfaceTextList: state.surfaceTextList.map((ele) => {
+                    if (ele.id === action.payload.id) {
+                        ele.color = action.payload.color
+                    }
+                    return ele;
+                })
+            }
+            break;
         default:
             return state;
     }

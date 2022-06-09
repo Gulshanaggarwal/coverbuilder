@@ -7,6 +7,7 @@ const texts = [
         weight: 'normal',
         font: 'Roboto',
         family: 'sans-serif',
+        color: '#000000',
         text: "Add a heading"
     },
     {
@@ -14,6 +15,7 @@ const texts = [
         weight: 'normal',
         font: 'Roboto',
         family: 'sans-serif',
+        color: '#000000',
         text: "Add a subheading"
     },
     {
@@ -21,6 +23,7 @@ const texts = [
         weight: 'normal',
         font: 'Roboto',
         family: 'sans-serif',
+        color: '#000000',
         text: "Add small body of text"
     },
 
