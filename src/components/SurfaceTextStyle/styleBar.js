@@ -13,7 +13,7 @@ import Popover from '@mui/material/Popover';
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
-const MenuProps = {
+export const MenuProps = {
     PaperProps: {
         style: {
             maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
@@ -101,7 +101,7 @@ export default function StyleBar({ currentText, focusDispatch }) {
                         {
                             // List all available fonts
                             availFonts.map((ele) => (
-                                <MenuItem onClick={() => handleFontChange(ele)} key={ele.font} value={ele.font}>{ele.font}</MenuItem>
+                                <MenuItem sx={{ fontFamily: `"${ele.font}", ${ele.family}` }} onClick={() => handleFontChange(ele)} key={ele.font} value={ele.font}>{ele.font}</MenuItem>
                             ))
                         }
                     </Select>

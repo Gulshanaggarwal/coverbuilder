@@ -1,4 +1,4 @@
-import { Stack, Box } from "@mui/material";
+import { Stack, Box, Grid } from "@mui/material";
 import ShowText from "./showText";
 
 const texts = [
@@ -29,6 +29,42 @@ const texts = [
 
 ]
 
+const moreTexts = [
+    {
+        size: '16px',
+        weight: 'normal',
+        font: 'Sofia',
+        family: 'sans-serif',
+        color: '#000000',
+        text: "Hello World!"
+    },
+    {
+        size: '16px',
+        weight: 'normal',
+        font: 'Trirong',
+        family: 'serif',
+        color: '#000000',
+        text: "full-stack"
+    },
+    {
+        size: '16px',
+        weight: 'normal',
+        font: 'Akronim',
+        family: 'cursive',
+        color: '#000000',
+        text: "Hackathon"
+    },
+    {
+        size: '16px',
+        weight: 'normal',
+        font: 'Audiowide',
+        family: 'cursive',
+        color: '#000000',
+        text: "JavaScript"
+    }
+
+]
+
 
 export default function Text() {
 
@@ -38,10 +74,19 @@ export default function Text() {
             <Stack direction="column" sx={{ color: 'common.white', }} gap={2} marginTop={2}>
                 {
                     texts.map((text) => (
-                        <ShowText key={text.text} text={text} />
+                        <ShowText key={text.text} text={text} padding="0.7rem 0.5rem" />
                     ))
                 }
             </Stack>
+            <Grid container spacing={1} sx={{ padding: '2rem 0' }}>
+                {
+                    moreTexts.map((text) => (
+                        <Grid key={text.text} item xs={6}>
+                            <ShowText text={text} padding="2rem 1rem" />
+                        </Grid>
+                    ))
+                }
+            </Grid>
         </Box>
     )
 }

@@ -7,8 +7,13 @@ export default function Document() {
                 <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@700&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
-                <link href="https://fonts.googleapis.com/css2?family=Anton&effect=neon|outline|emboss|shadow-multiple" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Trirong&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Audiowide&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Ruthie&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
             </Head>
             <body>
                 <Main />

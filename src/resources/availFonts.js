@@ -26,6 +26,26 @@ export const availFonts = [
     {
         font: 'Dancing Script',
         family: 'cursive'
-    }
+    },
+    {
+        font: 'Trirong',
+        family: 'serif'
+    },
+    {
+        font: 'Audiowide',
+        family: 'cursive'
+    },
+    {
+        font: 'Sofia',
+        family: 'sans-serif'
+    },
+    {
+        font: 'Akronim',
+        family: 'cursive'
+    },
+    {
+        font: 'Ruthie',
+        family: 'cursive'
+    },
 ]
 

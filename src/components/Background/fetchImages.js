@@ -1,10 +1,9 @@
 import { createApi } from "unsplash-js";
 import { useState, useEffect } from "react";
-import { CircularProgress } from "@mui/material";
 import { ImageList } from "@mui/material";
 import BgPhoto from "../bgPhoto";
-import { Box } from "@mui/system";
 import Error from "../Error/error";
+import CircularLoader from "../../resources/Loaders/loader";
 
 
 const api = createApi({
@@ -34,7 +33,7 @@ export default function FetchImages({ searchQuery }) {
     }, [searchQuery]);
 
     if (data === null) {
-        return <Box sx={{ display: 'flex', justifyContent: 'center', padding: '2rem 0' }}><CircularProgress sx={{ color: 'common.white' }} /></Box>
+        return <CircularLoader />
     }
     else if (data.length === 0) {
         return <Error error="Sorry! no results found, try searching again 😞" />

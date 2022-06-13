@@ -6,17 +6,20 @@ export const FocusContext = createContext();
 const initialState = {
 
     currentText: null,
-    surfaceTextList: []
+    surfaceTextList: [],
+    currentEmoji: null,
+    surfaceEmojiList: []
 }
 
 
 const reducer = (state, action) => {
 
     switch (action.type) {
-        case "SET_STYLES":
+        case "SET_TEXT_FOCUS":
             return {
                 ...state,
-                currentText: action.payload
+                currentText: action.payload,
+                currentEmoji: null
             }
             break;
         case "ADD_TEXT_TO_SURFACE":
@@ -59,6 +62,30 @@ const reducer = (state, action) => {
                 })
             }
             break;
+        case "ADD_EMOJI_TO_SURFACE":
+            return {
+                ...state,
+                surfaceEmojiList: [...state.surfaceEmojiList, action.payload]
+            }
+            break;
+        case "SET_FOCUS_TO_EMOJI":
+            return {
+                ...state,
+                currentText: null,
+                currentEmoji: action.payload
+            }
+            break;
+        case "CHANGE_EMOJI_SIZE":
+            return {
+                ...state,
+                surfaceEmojiList: state.surfaceEmojiList.map((ele) => {
+                    if (ele.id === action.payload.id) {
+                        ele.size = action.payload.size
+                    }
+                    return ele;
+                })
+            }
+            break;
         default:
             return state;
     }
@@ -77,9 +104,9 @@ export default function FocusContextProvider(props) {
 
     const [state, focusDispatch] = useReducer(reducer, initialState);
 
-    const { currentText, surfaceTextList } = state;
+    const { currentText, surfaceTextList, currentEmoji, surfaceEmojiList } = state;
     return (
-        <FocusContext.Provider value={[currentText, surfaceTextList, focusDispatch]}>
+        <FocusContext.Provider value={{ currentText, surfaceTextList, currentEmoji, surfaceEmojiList, focusDispatch }}>
             {props.children}
         </FocusContext.Provider>
     )
