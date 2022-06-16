@@ -21,7 +21,7 @@ export default function SurfaceEmoji({ emoji }) {
     }
     console.log(currentEmoji);
     return (
-        <Rnd bounds="parent" enableResizing={false} style={{ border: currentEmoji && currentEmoji.id === emoji.id ? '2px solid blue' : 'none', }} onResize={(e, direction, ref) => {
+        <Rnd onDragStart={handleFocus} bounds="parent" enableResizing={false} style={{ border: currentEmoji && currentEmoji.id === emoji.id ? '2px solid blue' : 'none', }} onResize={(e, direction, ref) => {
         }}>
             <Box sx={{ width: '100%', height: '100%', fontSize: emoji.size }} onClick={handleFocus}>
                 {emoji.character}

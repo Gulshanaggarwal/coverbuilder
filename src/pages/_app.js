@@ -6,6 +6,7 @@ import { Box } from '@mui/material';
 import { DndProvider } from "react-dnd"
 import { HTML5Backend } from "react-dnd-html5-backend"
 import FocusContextProvider from '../contexts/focusContext';
+import SizeContextProvider from '../contexts/sizeContext';
 
 
 
@@ -25,13 +26,15 @@ function MyApp({ Component, pageProps }) {
   return <DndProvider backend={HTML5Backend}>
     <ThemeProvider theme={theme}>
       <FocusContextProvider>
-        <Box sx={{ height: '100vh', }}>
-          <Box sx={{ height: '100%', display: 'grid', gridTemplateColumns: '120px 350px auto', gridTemplateRows: '70px auto 60px' }}>
-            <Navbar />
-            <Component {...pageProps} />
-            <Footer />
+        <SizeContextProvider>
+          <Box sx={{ height: '100vh', }}>
+            <Box sx={{ height: '100%', display: 'grid', gridTemplateColumns: '120px 350px auto', gridTemplateRows: '70px auto 60px' }}>
+              <Navbar />
+              <Component {...pageProps} />
+              <Footer />
+            </Box>
           </Box>
-        </Box>
+        </SizeContextProvider>
       </FocusContextProvider>
     </ThemeProvider>
   </DndProvider>
