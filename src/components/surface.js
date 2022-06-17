@@ -7,6 +7,7 @@ import { FocusContext } from "../contexts/focusContext";
 import SurfaceEmoji from "./surfaceEmoji";
 import { SizeContext } from "../contexts/sizeContext";
 import SurfaceText from "./surfaceText";
+import DeleteSurfaceItem from "./deleteSurfaceItem";
 
 
 const handleBackgroundImage = (item, background, setBackground) => {
@@ -106,6 +107,7 @@ export default function Surface() {
                     ))
                 }
             </Box>
+            <DeleteSurfaceItem />
         </Box>
     )
 }

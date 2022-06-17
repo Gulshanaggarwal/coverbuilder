@@ -8,7 +8,8 @@ const initialState = {
     currentText: null,
     surfaceTextList: [],
     currentEmoji: null,
-    surfaceEmojiList: []
+    surfaceEmojiList: [],
+    deleteItem: null
 }
 
 
@@ -86,6 +87,21 @@ const reducer = (state, action) => {
                 })
             }
             break;
+        case "SET_DELETE_ITEM":
+            return {
+                ...state,
+                deleteItem: action.payload
+            }
+        case "DELETE_TEXT_FROM_SURFACE":
+            return {
+                ...state,
+                surfaceTextList: state.surfaceTextList.filter((ele) => ele.id !== action.payload.id)
+            }
+        case "DELETE_EMOJI_FROM_SURFACE":
+            return {
+                ...state,
+                surfaceEmojiList: state.surfaceEmojiList.filter((ele) => ele.id !== action.payload.id)
+            }
         default:
             return state;
     }
@@ -104,9 +120,9 @@ export default function FocusContextProvider(props) {
 
     const [state, focusDispatch] = useReducer(reducer, initialState);
 
-    const { currentText, surfaceTextList, currentEmoji, surfaceEmojiList } = state;
+    const { currentText, surfaceTextList, currentEmoji, surfaceEmojiList, deleteItem } = state;
     return (
-        <FocusContext.Provider value={{ currentText, surfaceTextList, currentEmoji, surfaceEmojiList, focusDispatch }}>
+        <FocusContext.Provider value={{ currentText, surfaceTextList, currentEmoji, surfaceEmojiList, deleteItem, focusDispatch }}>
             {props.children}
         </FocusContext.Provider>
     )
