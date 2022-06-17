@@ -54,7 +54,7 @@ export default function SizeMenu({ anchorEl, open, handleClose }) {
             sendTo(router);
         }
         else if (coverStyle === "Medium") {
-            handleSizeDispatch(coverStyle, '3000', '3000', sizeDispatch);
+            handleSizeDispatch(coverStyle, '1500', '750', sizeDispatch);
             handleClose();
             sendTo(router);
         }

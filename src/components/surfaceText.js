@@ -20,7 +20,7 @@ export default function SurfaceText({ text }) {
         <Rnd onDragStart={handleFocus} bounds="parent" enableResizing={{
             bottomRight: true
         }} style={{ border: currentText && currentText.id === text.id ? '2px solid blue' : 'none' }}>
-            <Box onClick={handleFocus} sx={{ width: '100%', height: '100%', fontSize: text.size, fontFamily: `"${text.font}",${text.family}`, color: text.color }}>
+            <Box contentEditable={true} suppressContentEditableWarning={true} onClick={handleFocus} sx={{ outline: 'none', width: '100%', height: '100%', fontSize: text.size, fontFamily: `"${text.font}",${text.family}`, color: text.color }}>
                 {text.text}
             </Box>
         </Rnd>

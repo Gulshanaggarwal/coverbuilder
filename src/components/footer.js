@@ -28,7 +28,7 @@ export default function Footer() {
                     >
                         Gulshan
                     </Link>{" "}
-                    using Appwrite 🔥 and NextJS ✨
+                    using Firebase 🔥 and NextJS ✨
                 </Typography>
             </Box>
         </Box>
