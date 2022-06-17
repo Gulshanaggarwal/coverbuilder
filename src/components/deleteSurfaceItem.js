@@ -10,8 +10,6 @@ export default function DeleteSurfaceItem() {
 
     return (
         <Menu id="delete-menu"
-            anchorEl={ }
-            open={ }
             onClose={handleClose}
             MenuListProps={{
                 'aria-labelledby': 'basic-button',
