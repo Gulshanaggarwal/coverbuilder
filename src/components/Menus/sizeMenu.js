@@ -9,6 +9,7 @@ import { useState, useContext } from 'react';
 import { MenuProps } from '../SurfaceTextStyle/styleBar';
 import { SizeContext } from '../../contexts/sizeContext';
 import { useRouter } from "next/router";
+import OutlinedInput from '@mui/material/OutlinedInput';
 
 const Options = [
     "DEV.to",
@@ -90,14 +91,15 @@ export default function SizeMenu({ anchorEl, open, handleClose }) {
                 'aria-labelledby': 'basic-button',
             }}
         >
-            <Box sx={{ padding: '1rem 5rem 3rem 1rem', width: '250px' }}>
-                <Typography sx={{ padding: '0.5rem 0' }}>Select Size</Typography>
+            <Box sx={{ padding: '1rem 3rem 1rem 1rem', width: '300px' }}>
+                <Typography sx={{ padding: '0.5rem 0', fontWeight: 'fontWeightBold' }}>Select size</Typography>
                 <FormControl sx={{ minWidth: 120, }} fullWidth size="small">
                     <Select
                         labelId="demo-select-small"
                         id="demo-select-small"
                         value={coverStyle}
                         label="Size"
+                        input={<OutlinedInput />}
                         onChange={handleChange}
                         MenuProps={MenuProps}
                     >
@@ -109,7 +111,7 @@ export default function SizeMenu({ anchorEl, open, handleClose }) {
                     </Select>
                 </FormControl>
                 {
-                    coverStyle === "Custom" && <Box sx={{ padding: '2rem 0' }}>
+                    coverStyle === "Custom" && <Box sx={{ padding: '2rem 0 0 0' }}>
                         <Box
                             component='form'
                             autoComplete='off'

@@ -8,6 +8,7 @@ import { saveAs } from 'file-saver';
 import { useRouter } from "next/router";
 import { useState } from "react";
 import SizeMenu from "./Menus/sizeMenu";
+import DownloadMenu from "./Menus/downloadMenu";
 
 
 
@@ -25,16 +26,7 @@ const CustomButton = styled(Button)(({ theme }) => ({
 
 
 
-const runDownload = () => {
-    const node = document.getElementsByClassName("surface");
 
-
-    domtoimage.toBlob(node[0])
-        .then(function (blob) {
-            window.saveAs(blob, 'my-node.png');
-        });
-
-}
 
 export default function Navbar() {
 
@@ -57,9 +49,12 @@ export default function Navbar() {
                 <Typography component="h1" variant="h4" fontFamily="'Cinzel Decorative',cursive">CB</Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {
-                        route === "/create/[endpoint]" && <CustomButton onClick={runDownload} variant="contained" endIcon={<FileDownloadOutlinedIcon />}>
-                            Download
-                        </CustomButton>
+                        route === "/create/[endpoint]" && <Box>
+                            <CustomButton onClick={handleClick} variant="contained" endIcon={<FileDownloadOutlinedIcon />}>
+                                Download
+                            </CustomButton>
+                            <DownloadMenu anchorEl={anchorEl} handleClose={handleClose} open={open} />
+                        </Box>
                     }
                     {
                         route === "/" && <Box>
