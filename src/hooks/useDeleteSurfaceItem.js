@@ -6,7 +6,7 @@ import { FocusContext } from "../contexts/focusContext";
 
 export default function useDeleteSurfaceItem() {
 
-    const { deleteItem, focusDispatch } = useContext(FocusContext);
+    const { focusDispatch } = useContext(FocusContext);
 
     const handleDeletePrompt = (e, surfaceItem, type) => {
         e.preventDefault();

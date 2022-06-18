@@ -20,7 +20,7 @@ export default function SurfaceText({ text }) {
     return (
         <Rnd onContextMenu={(e) => handleDeletePrompt(e, currentText, "TEXT")} onClick={handleFocus} onDragStart={handleFocus} bounds="parent" enableResizing={{
             bottomRight: true
-        }} style={{ border: currentText && currentText.id === text.id ? '2px dashed blue' : 'none' }}>
+        }} style={{ border: currentText && currentText.id === text.id ? '2px dashed #651fff' : 'none' }}>
             <Box contentEditable={true} suppressContentEditableWarning={true} sx={{ outline: 'none', width: '100%', height: '100%', fontSize: text.size, fontFamily: `"${text.font}",${text.family}`, color: text.color }}>
                 {text.text}
             </Box>

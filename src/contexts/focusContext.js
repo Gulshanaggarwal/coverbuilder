@@ -92,6 +92,7 @@ const reducer = (state, action) => {
                 ...state,
                 deleteItem: action.payload
             }
+            break;
         case "DELETE_TEXT_FROM_SURFACE":
             return {
                 ...state,
@@ -102,6 +103,14 @@ const reducer = (state, action) => {
                 ...state,
                 surfaceEmojiList: state.surfaceEmojiList.filter((ele) => ele.id !== action.payload.id)
             }
+            break;
+        case "FOCUS_SET_TO_NONE":
+            return {
+                ...state,
+                currentText: action.payload.currentText,
+                currentEmoji: action.payload.currentEmoji
+            }
+            break;
         default:
             return state;
     }

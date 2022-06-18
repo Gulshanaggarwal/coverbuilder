@@ -34,7 +34,7 @@ const sendTo = (router) => {
 
 export default function SizeMenu({ anchorEl, open, handleClose }) {
 
-    const [coverStyle, setCoverStyle] = useState("");
+    const [coverStyle, setCoverStyle] = useState("Hashnode");
     const [customWidth, setCustomWidth] = useState('');
     const [customHeight, setCustomHeight] = useState('');
     const [, sizeDispatch] = useContext(SizeContext);
@@ -46,18 +46,12 @@ export default function SizeMenu({ anchorEl, open, handleClose }) {
 
         if (coverStyle === "DEV.to") {
             handleSizeDispatch(coverStyle, '1000', '420', sizeDispatch);
-            handleClose();
-            sendTo(router);
         }
         else if (coverStyle === "Hashnode") {
             handleSizeDispatch(coverStyle, '1200', '630', sizeDispatch);
-            handleClose();
-            sendTo(router);
         }
         else if (coverStyle === "Medium") {
             handleSizeDispatch(coverStyle, '1500', '750', sizeDispatch);
-            handleClose();
-            sendTo(router);
         }
         setCoverStyle(e.target.value);
     }
@@ -109,6 +103,11 @@ export default function SizeMenu({ anchorEl, open, handleClose }) {
                             ))
                         }
                     </Select>
+                    {coverStyle !== "Custom" && <Button onClick={() => {
+                        handleClose();
+                        sendTo(router);
+
+                    }} sx={{ margin: '1rem 0', width: '100%' }} variant="contained">Create Design</Button>}
                 </FormControl>
                 {
                     coverStyle === "Custom" && <Box sx={{ padding: '2rem 0 0 0' }}>
