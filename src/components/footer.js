@@ -6,6 +6,7 @@ export default function Footer() {
     return (
         <Box
             component="footer"
+            className="homepage-gradient"
             sx={{
                 display: "flex",
                 justifyContent: "center",
@@ -25,6 +26,7 @@ export default function Footer() {
                         underline="hover"
                         target="_blank"
                         rel="noopener"
+                        sx={{ color: 'white' }}
                     >
                         Gulshan
                     </Link>{" "}

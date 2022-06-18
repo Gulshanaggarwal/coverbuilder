@@ -14,6 +14,8 @@ export default function Document() {
                 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia&display=swap" crossOrigin="anonymous"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Akronim&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
                 <link href="https://fonts.googleapis.com/css2?family=Ruthie&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Faster+One&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
+                <link href="https://fonts.googleapis.com/css2?family=Coiny&display=swap" rel="stylesheet" crossOrigin="anonymous"></link>
             </Head>
             <body>
                 <Main />

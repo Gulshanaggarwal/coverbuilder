@@ -44,9 +44,9 @@ export default function Navbar() {
     };
 
     return (
-        <Box component="div" color="white" sx={{ backgroundColor: 'primary.dark', gridColumnStart: 1, gridColumnEnd: 4, width: '100%' }}>
+        <Box className="homepage-gradient" component="div" color="white" sx={{ backgroundColor: 'primary.dark', gridColumnStart: 1, gridColumnEnd: 4, width: '100%', borderBottom: 1, borderColor: 'grey.300' }}>
             <Box sx={{ display: 'flex', justifyContent: 'space-between', width: '100%', padding: '1rem' }}>
-                <Typography component="h1" variant="h4" fontFamily="'Cinzel Decorative',cursive">CB</Typography>
+                <Typography component="h1" variant="h4" fontFamily="'Faster One', cursive">Cover Builder</Typography>
                 <Box sx={{ display: 'flex', alignItems: 'center' }}>
                     {
                         route === "/create/[endpoint]" && <Box>
