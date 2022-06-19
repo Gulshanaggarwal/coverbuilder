@@ -24,14 +24,11 @@ export default function Emoji() {
         //make empty searchBar
         handleChange("", dispatch);
 
-    }, [])
+    }, [dispatch])
 
 
 
     useEffect(() => {
-        if (error) {
-            setError(null);
-        }
 
         const fetchEmoji = async () => {
             let url = "";
@@ -51,6 +48,9 @@ export default function Emoji() {
                 }
                 else {
                     setData(data);
+                    if (error) {
+                        setError(null);
+                    }
                 }
 
             } catch (error) {
@@ -60,7 +60,7 @@ export default function Emoji() {
         }
         fetchEmoji();
 
-    }, [searchQuery])
+    }, [searchQuery, error])
 
     if (data === null) {
         return <CircularLoader />

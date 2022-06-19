@@ -8,11 +8,11 @@ export default function Home() {
     <Box className="homepage-gradient" sx={{ gridColumnStart: '1', gridColumnEnd: '4', color: 'white' }}>
       <Box sx={{ display: 'flex', padding: '6rem 4rem', width: '100%', height: '100%', gap: 4 }}>
         <Box sx={{ width: '60%', }}>
-          <Typography sx={{ fontSize: '3rem', fontWeight: 'fontWeightBold' }}>
+          <Typography data-testid="main-slogan" sx={{ fontSize: '3rem', fontWeight: 'fontWeightBold' }}>
             Create Beautiful Covers<br />
             for blogs like a pro😎
           </Typography>
-          <Typography sx={{ padding: '2rem 0', fontSize: '1.2rem' }}>
+          <Typography data-testid="descriptive-slogan" sx={{ padding: '2rem 0', fontSize: '1.2rem' }}>
             We at Cover Builders are aimed to provide you simple and easy tools,<br />
             that helps you in generating blog covers easily.
           </Typography>
@@ -21,7 +21,7 @@ export default function Home() {
           <Image
             src={editorGif}
             alt="full_editor"
-            style={{ borderRadius: '10px', margin: '0 0 0 2rem', }}
+            style={{ borderRadius: '10px' }}
           >
 
           </Image>

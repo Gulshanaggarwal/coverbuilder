@@ -40,7 +40,7 @@ export default function Background() {
         //make empty searchBar
         handleChange("web", dispatch);
 
-    }, [])
+    }, [dispatch])
 
 
 
