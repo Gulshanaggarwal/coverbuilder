@@ -16,6 +16,6 @@ describe("check slogans", () => {
     test("descriptive slogan", () => {
 
         const text = /^We at Cover Builders are aimed to provide you simple and easy tools,that helps you in generating blog covers easily/
-        expect(screen.getByTestId("descriptive-slogan")).toHaveTextContent(text);
+        expect(screen.getByTestId("descriptive-slogan")).toHaveTextContent();
     })
 })
