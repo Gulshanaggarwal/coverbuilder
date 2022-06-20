@@ -1,0 +1,22 @@
+name: "Vercel CI"
+on: [push]
+jobs:
+  vercel:
+    runs-on: ubuntu-latest
+    name: deploy-app
+    steps:
+      - uses: action/checkout@v3
+      - uses: action/setup-node@v3
+        with:
+          node-version: "16.13.2"
+        run: |
+          prodRun=""
+          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
+            prodRun="--prod"
+          fi
+
+          npx vercel --token ${VERCEL_SECRET_TOKEN} $prodRun
+        env:
+          VERCEL_SECRET_TOKEN: ${{secret.VERCEL_SECRET_TOKEN}}
+          VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
+          VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
