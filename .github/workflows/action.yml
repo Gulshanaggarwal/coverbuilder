@@ -1,5 +1,5 @@
 name: "Vercel CI"
-on: [push]
+on: push
 jobs:
   vercel:
     runs-on: ubuntu-latest
