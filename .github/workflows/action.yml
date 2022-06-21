@@ -11,6 +11,8 @@ jobs:
         with:
           node-version: "16.13.2"
           registry-url: https://registry.npmjs.org/
+      - name: "install packages"
+        run: npm install
       - name: "linting"
         run: npm run lint
       - name: "test with jest"
