@@ -4,12 +4,14 @@ jobs:
   vercel:
     runs-on: ubuntu-latest
     name: "Deploy front-end"
+
     steps:
       - uses: action/checkout@v3
       - uses: action/setup-node@v3
         with:
           node-version: "16.13.2"
-        name: "deploy-app"
+          registry-url: https://registry.npmjs.org/
+      - name: "deploy-app"
         run: |
           prodRun=""
           if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
