@@ -34,10 +34,10 @@ export default function Emoji() {
             let url = "";
 
             if (searchQuery === "") {
-                url = `https://emoji-api.com/emojis?access_key=${NEXT_PUBLIC_EMOJIAPI_ACCESS_KEY}`
+                url = `https://emoji-api.com/emojis?access_key=${process.env.NEXT_PUBLIC_EMOJIAPI_ACCESS_KEY}`
             }
             else {
-                url = `https://emoji-api.com/emojis?search=${searchQuery}&access_key=${NEXT_PUBLIC_EMOJIAPI_ACCESS_KEY}`
+                url = `https://emoji-api.com/emojis?search=${searchQuery}&access_key=${process.env.NEXT_PUBLIC_EMOJIAPI_ACCESS_KEY}`
             }
             console.log(url);
             try {
