@@ -14,13 +14,6 @@ jobs:
           scope: ${{secrets.VERCEL_ORG_ID}}
 
       - name: "deploy-app"
-        run: |
-          prodRun=""
-          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
-            prodRun="--prod"
-          fi
-
-          npx vercel --token ${VERCEL_SECRET_TOKEN} $prodRun
         env:
           VERCEL_SECRET_TOKEN: ${{secrets.VERCEL_SECRET_TOKEN}}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
@@ -28,3 +21,10 @@ jobs:
           NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: ${{secrets.NEXT_PUBLIC_UNSPLASH_ACCESS_KEY}}
           NEXT_PUBLIC_UNSPLASH_SECRET_KEY: ${{secrets.NEXT_PUBLIC_UNSPLASH_SECRET_KEY}}
           NEXT_PUBLIC_EMOJIAPI_ACCESS_KEY: ${{secrets.NEXT_PUBLIC_EMOJIAPI_ACCESS_KEY}}
+        run: |
+          prodRun=""
+          if [[ ${GITHUB_REF} == "refs/heads/main" ]]; then
+            prodRun="--prod"
+          fi
+
+          npx vercel --token ${VERCEL_SECRET_TOKEN} $prodRun
