@@ -20,6 +20,6 @@ jobs:
 
           npx vercel --token ${VERCEL_SECRET_TOKEN} $prodRun
         env:
-          VERCEL_SECRET_TOKEN: ${{secret.VERCEL_SECRET_TOKEN}}
+          VERCEL_SECRET_TOKEN: ${{secrets.VERCEL_SECRET_TOKEN}}
           VERCEL_PROJECT_ID: ${{ secrets.VERCEL_PROJECT_ID }}
           VERCEL_ORG_ID: ${{ secrets.VERCEL_ORG_ID }}
