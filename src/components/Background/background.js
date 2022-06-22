@@ -48,7 +48,7 @@ export default function Background() {
 
     return (
         <>
-            <Box sx={{ display: 'flex', flexWrap: 'wrap', padding: '1rem 0', gap: '0.5rem' }}>
+            <Box sx={{ backgroundColor: 'grey.800', display: 'flex', flexWrap: 'wrap', padding: '1rem 0', gap: '0.5rem', position: 'sticky', top: '70px', zIndex: '101' }}>
                 {
                     // chips 
                     chipArray.map((ele) => (

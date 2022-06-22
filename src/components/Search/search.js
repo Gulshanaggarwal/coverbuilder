@@ -23,11 +23,13 @@ export default function Search() {
 
 
     return (
-        <Box onFocus={() => setBorderColor("primary.main")} onBlur={() => setBorderColor('common.white')} sx={{ display: 'flex', width: '100%', border: 2, borderColor, borderRadius: '5px', outline: 'none' }}>
-            <Box sx={{ backgroundColor: 'common.white', display: 'flex', justifyContent: 'center', padding: '0.5rem', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px', border: 0 }}>
-                <SearchOutlinedIcon />
+        <Box sx={{ width: '100%', padding: '1rem 0', position: 'sticky', top: '0', zIndex: '101', backgroundColor: 'grey.800' }}>
+            <Box onFocus={() => setBorderColor("primary.main")} onBlur={() => setBorderColor('common.white')} sx={{ display: 'flex', width: '100%', border: 2, borderColor, borderRadius: '5px', outline: 'none', }}>
+                <Box sx={{ backgroundColor: 'common.white', display: 'flex', justifyContent: 'center', padding: '0.5rem', borderTopLeftRadius: '5px', borderBottomLeftRadius: '5px', border: 0 }}>
+                    <SearchOutlinedIcon />
+                </Box>
+                <input value={searchQuery} onChange={(e) => handleChange(e.target.value, dispatch)} style={{ outline: 'none', width: '100%', border: 0, borderTopRightRadius: '5px', borderBottomRightRadius: '5px', padding: '0 3px' }} type="text" placeholder='search' />
             </Box>
-            <input value={searchQuery} onChange={(e) => handleChange(e.target.value, dispatch)} style={{ outline: 'none', width: '100%', border: 0, borderTopRightRadius: '5px', borderBottomRightRadius: '5px', padding: '0 3px' }} type="text" placeholder='search' />
         </Box>
     )
 }

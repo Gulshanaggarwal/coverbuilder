@@ -1,4 +1,4 @@
-import { ImageListItem } from "@mui/material";
+import { Grid } from "@mui/material";
 import Image from "next/image";
 import { ItemTypes } from "../itemTypes";
 import { useDrag } from "react-dnd";
@@ -20,7 +20,7 @@ export default function BgPhoto({ photo }) {
 
 
     return (
-        <ImageListItem ref={drag} sx={{ cursor: 'grab' }}>
+        <Grid item ref={drag} sx={{ cursor: 'grab' }} xs={6}>
             {
                 !isDragging && <Image
                     alt={alt_description}
@@ -29,6 +29,6 @@ export default function BgPhoto({ photo }) {
                     height={200}
                 />
             }
-        </ImageListItem>
+        </Grid>
     )
 }

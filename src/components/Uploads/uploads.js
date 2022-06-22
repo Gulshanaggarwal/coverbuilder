@@ -1,6 +1,6 @@
 import { Box } from "@mui/system"
 import { useState } from "react";
-import { Button, ImageList, Typography } from "@mui/material";
+import { Button, Grid, Typography } from "@mui/material";
 import PhotoCamera from '@mui/icons-material/PhotoCamera';
 import { styled } from '@mui/material/styles';
 import storage from "../../firebase/firebase";
@@ -86,24 +86,26 @@ export default function Uploads() {
 
     return (
         <>
-            <Box sx={{ width: '100%' }}>
-                <label htmlFor="contained-button-file">
-                    <Input onChange={handleFileChange} accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" />
-                    <Button sx={{ width: '100%', margin: '1rem 0' }} variant="contained" component="span" endIcon={<PhotoCamera />}>
-                        Upload
-                    </Button>
-                </label>
+            <Box sx={{ width: '100%', position: 'sticky', top: '0', zIndex: '101', backgroundColor: 'grey.800', padding: '1rem 0' }}>
+                <Box sx={{ width: '100%' }}>
+                    <label htmlFor="contained-button-file">
+                        <Input onChange={handleFileChange} accept=".jpg,.jpeg,.png" id="contained-button-file" type="file" />
+                        <Button sx={{ width: '100%', }} variant="contained" component="span" endIcon={<PhotoCamera />}>
+                            Upload
+                        </Button>
+                    </label>
+                </Box>
             </Box>
             {
                 UploadedImages.length === 0 && <Error error="Sorry! no image found, start uploading now 😞" />
             }
-            <ImageList sx={{ overflowY: 'scroll', overflowX: 'hidden', margin: '1.5rem 0 0 0' }} cols={2} gap={6}>
+            <Grid container sx={{ padding: '1.5rem 0' }} spacing={1}>
                 {
                     UploadedImages.length > 0 && UploadedImages.map((photo) => (
                         <BgPhoto key={photo.id} photo={photo} />
                     ))
                 }
-            </ImageList>
+            </Grid>
         </>
     )
 }

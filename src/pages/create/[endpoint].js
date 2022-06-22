@@ -21,7 +21,7 @@ export default function Create() {
             {
                 // Middle Layer
                 <SearchContextProvider>
-                    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '2rem', backgroundColor: 'grey.800', overflowX: 'hidden' }}>
+                    <Box sx={{ display: 'flex', alignItems: 'center', flexDirection: 'column', padding: '0 2rem 2rem 2rem', backgroundColor: 'grey.800', overflowX: 'hidden', }}>
                         {(endpoint === 'background' || endpoint === "emoji") && <Search />}
                         {endpoint === 'background' && <Background />}
                         {endpoint === 'uploads' && <Uploads />}
