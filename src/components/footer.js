@@ -30,7 +30,7 @@ export default function Footer() {
                     >
                         Gulshan
                     </Link>{" "}
-                    using Firebase 🔥 and NextJS ✨
+                    using NextJS 🔥 and Firebase ✨
                 </Typography>
             </Box>
         </Box>

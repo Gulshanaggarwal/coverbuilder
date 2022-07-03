@@ -29,7 +29,7 @@ export default function EmojiStyleBar({ currentEmoji, focusDispatch }) {
     }
 
     return (
-        <Box sx={{ backgroundColor: 'common.white', boxShadow: 6, padding: '8px 0.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ backgroundColor: 'common.white', boxShadow: 6, padding: '8px 0.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1, position: 'absolute', zIndex: '101', borderTopRightRadius: 4, borderBottomRightRadius: 4, padding: '1rem 2rem' }}>
             <Box>
                 <FormControl>
                     <InputLabel id="demo-simple-select-label"></InputLabel>

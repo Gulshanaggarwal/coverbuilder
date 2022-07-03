@@ -80,19 +80,15 @@ export default function Surface() {
 
 
     return (
-        <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', width: '100%', height: '100%', }}>
+        <Box sx={{ width: '100%', height: '100%', overflow: 'scroll', }}>
             <Box className="surface" ref={drop} sx={{
                 position: 'relative',
                 width: `${width}px`, height: `${height}px`, backgroundColor: 'common.white',
                 boxShadow: 2,
-                '&:hover': {
-                    border: 2,
-                    borderColor: 'primary.main'
-                },
                 backgroundImage: `url(${background})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                backgroundPosition: 'center',
+                margin: '6rem 2rem'
             }}>
                 {
                     // surafce texts

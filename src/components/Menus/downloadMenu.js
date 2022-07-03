@@ -13,7 +13,6 @@ import { useContext } from 'react';
 
 const fileTypes = [
     'PNG',
-    'JPEG',
 ];
 
 
@@ -42,13 +41,7 @@ export default function DownloadMenu({ open, anchorEl, handleClose }) {
             window.saveAs(blob, "cover-builder.png");
         }
 
-        if (currentType === "JPEG") {
-            const dataURL = await domtoimage.toJpeg(node[0]);
-            let link = document.createElement('a');
-            link.download = "cover-builder.jpeg";
-            link.href = dataURL;
-            link.click();
-        }
+
 
     }
 

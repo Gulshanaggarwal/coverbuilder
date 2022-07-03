@@ -86,7 +86,7 @@ export default function StyleBar({ currentText, focusDispatch }) {
     }
 
     return (
-        <Box sx={{ backgroundColor: 'common.white', boxShadow: 6, padding: '8px 0.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 1 }}>
+        <Box sx={{ backgroundColor: 'common.white', boxShadow: 2, padding: '8px 0.5rem', display: 'flex', justifyContent: 'center', alignItems: 'center', gap: 2, position: 'absolute', zIndex: '101', borderTopRightRadius: 4, borderBottomRightRadius: 4 }}>
             { /* font family */}
             <Box sx={{ minWidth: 120 }}>
                 <FormControl fullWidth>
