@@ -59,7 +59,9 @@ export default function Surface() {
     const { surfaceTextList, surfaceEmojiList, focusDispatch } = useContext(FocusContext);
     const [sizeState] = useContext(SizeContext);
     const { width, height } = sizeState;
-    console.log(sizeState);
+
+
+
 
 
     const handleDropItem = (item) => {
@@ -80,7 +82,7 @@ export default function Surface() {
 
 
     return (
-        <Box sx={{ width: '100%', height: '100%', overflow: 'scroll', }}>
+        <Box className="parent-surface" sx={{ width: '100%', height: '100%', overflow: 'scroll', padding: '2rem' }}>
             <Box className="surface" ref={drop} sx={{
                 position: 'relative',
                 width: `${width}px`, height: `${height}px`, backgroundColor: 'common.white',
@@ -88,7 +90,8 @@ export default function Surface() {
                 backgroundImage: `url(${background})`,
                 backgroundRepeat: 'no-repeat',
                 backgroundSize: 'cover',
-                margin: '6rem 2rem'
+                margin: '4rem auto'
+
             }}>
                 {
                     // surafce texts
