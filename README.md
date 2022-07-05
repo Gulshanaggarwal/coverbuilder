@@ -2,7 +2,7 @@
 
 Cover Builder is a web app that allows people to create nice cover images for their blog posts.
 
-![Demo][https://i.ibb.co/wdb71fk/3qovcdd.gif]
+![Demo](https://i.ibb.co/wdb71fk/3qovcdd.gif)
 
 ## Key Feature
 
